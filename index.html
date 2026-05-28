@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>SDInfo_Tech</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <style>
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+  font-family: ui-sans-serif, system-ui;
+  overflow-x:hidden;
+
+  background:
+    linear-gradient(
+      rgba(255,255,255,0.75),
+      rgba(255,255,255,0.75)
+    ),
+    url("background.jpeg");
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+    .nav-link.active{
+    color:#06b6d4;
+    font-weight:700;
+    position:relative;
+  }
+
+.nav-link.active::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:100%;
+  height:2px;
+  background:linear-gradient(90deg,#06b6d4,#8b5cf6);
+  border-radius:10px;
+}
+
+    .hero-gradient{
+      background:
+      linear-gradient(
+        135deg,
+        #7c3aed,
+        #06b6d4,
+        #f472b6
+      );
+
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .glass{
+      background:rgba(255,255,255,0.55);
+      backdrop-filter:blur(18px);
+      border:1px solid rgba(255,255,255,0.5);
+      box-shadow:0 10px 40px rgba(15,23,42,0.06);
+    }
+
+    .service-card{
+      transition:0.4s ease;
+    }
+
+    .service-card:hover{
+      transform:translateY(-10px);
+      box-shadow:0 20px 50px rgba(124,58,237,0.12);
+    }
+
+    .project-card{
+      transition:0.4s ease;
+      overflow:hidden;
+    }
+
+    .project-card:hover{
+      transform:scale(1.03);
+    }
+
+    .glow{
+      position:absolute;
+      width:500px;
+      height:500px;
+      border-radius:50%;
+      filter:blur(140px);
+      opacity:0.25;
+      z-index:-1;
+    }
+
+    .btn-primary{
+      background:
+      linear-gradient(
+        135deg,
+        #8b5cf6,
+        #06b6d4
+      );
+
+      color:white;
+      transition:0.3s ease;
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-4px);
+      box-shadow:0 18px 40px rgba(6,182,212,0.20);
+    }
+
+    .tech-card{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:14px 20px;
+      background:rgba(255,255,255,0.7);
+      backdrop-filter:blur(10px);
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,0.8);
+      box-shadow:0 6px 20px rgba(0,0,0,0.05);
+      min-width:110px;
+    }
+
+    .tech-card img{
+      width:32px;
+      height:32px;
+    }
+
+    .tech-card p{
+      font-size:14px;
+      font-weight:600;
+      color:#0f172a;
+      margin:0;
+    }
+
+    .tech-card .emoji{
+      font-size:28px;
+    }
+
+    @keyframes moveLeft {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .animate-left {
+      display:flex;
+      animation: moveLeft 20s linear infinite;
+    }
+
+    @keyframes moveRight {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
+    }
+
+    .animate-right {
+      display:flex;
+      animation: moveRight 20s linear infinite;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="glow top-[-150px] left-[-100px] bg-purple-300"></div>
+<div class="glow bottom-[-150px] right-[-100px] bg-cyan-300"></div>
+
+<header class="fixed top-0 w-full z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4">
+    <div class="glass rounded-2xl px-6 py-4 flex justify-between items-center">
+
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl overflow-hidden shadow-lg">
+          <img src="logo.png" class="w-full h-full object-cover"/>
+        </div>
+
+        <div>
+          <h1 class="text-3xl font-black bg-gradient-to-r from-cyan-700 to-blue-900 bg-clip-text text-transparent">
+            SDInfo_Tech
+          </h1>
+          <p class="text-sm text-gray-700 font-semibold">
+            <span class="text-gray-900">Founder & CEO</span> |
+            <span class="text-blue-900">Saurabh Bandgar</span>
+          </p>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-10 ml-16 text-gray-700 font-medium">
+        <a href="#home">🏠 Home</a>
+        <a href="#services">⚙️ Services</a>
+        <a href="#projects">📁 Projects</a>
+        <a href="#start-project">💡Share Ideas</a>
+        <a href="#contact">📞 Contact</a>
+        <a href="#complaint-form">🤝 Customer Care</a>
+      </nav>
+
+    </div>
+  </div>
+</header>
+
+<!-- HERO SECTION -->
+<section id="home" class="min-h-screen flex items-center justify-center px-6 sm:px-10 lg:px-16 pt-28 pb-16">
+
+  <div class="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+
+    <!-- ✅ ONLY CHANGE HERE (SHIFTED RIGHT) -->
+    <div class="text-center md:text-left md:pl-16 lg:pl-24 xl:pl-32">
+
+      <p class="text-cyan-600 font-semibold mb-4 tracking-wide text-sm sm:text-base">
+        DIGITAL & INFRASTRUCTURE SOLUTIONS
+      </p>
+
+      <h1 class="text-4xl sm:text-5xl lg:text-7xl font-black leading-tight text-gray-900">
+        Building The
+        <span class="bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent">
+          Future
+        </span>
+        Through Technology
+      </h1>
+
+      <p class="mt-6 sm:mt-8 text-gray-600 text-base sm:text-lg leading-7 sm:leading-8 max-w-xl mx-auto md:mx-0">
+        We create modern software systems, AI solutions, enterprise applications and infrastructure platforms for fast-growing businesses.
+      </p>
+
+      <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+
+        <a href="#start-project">
+          <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-4 rounded-2xl font-semibold shadow-lg">
+            🚀 Get Started
+          </button>
+        </a>
+
+        <a href="#projects">
+          <button class="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-4 rounded-2xl font-semibold shadow-lg">
+            ⚡ Explore Work
+          </button>
+        </a>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT CONTENT SAME -->
+    <div class="backdrop-blur-xl bg-white border border-gray-200 rounded-[40px] p-6 sm:p-10 shadow-2xl">
+      <div class="grid grid-cols-2 gap-4 sm:gap-5">
+
+        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" class="h-40 sm:h-44 w-full object-cover rounded-3xl shadow-lg"/>
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475" class="h-52 sm:h-60 w-full object-cover rounded-3xl shadow-lg"/>
+        <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb" class="h-52 sm:h-60 w-full object-cover rounded-3xl shadow-lg"/>
+        <img src="https://images.unsplash.com/photo-1526498460520-4c246339dccb" class="h-40 sm:h-44 w-full object-cover rounded-3xl shadow-lg"/>
+
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ABOUT SECTION -->
+<section class="py-28 px-6 bg-gray-50">
+
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
+
+    <!-- LEFT SIDE IMAGES (SLIGHTLY BIGGER) -->
+    <div class="flex justify-center order-1 md:order-1 md:scale-[1.05]">
+
+      <div class="backdrop-blur-xl bg-white/20 border border-white/20 rounded-[30px] sm:rounded-[40px] p-6 sm:p-10 shadow-2xl w-full max-w-[420px]">
+
+        <div class="grid grid-cols-2 gap-4 sm:gap-5">
+
+          <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b"
+               class="h-36 sm:h-44 w-full object-cover rounded-3xl shadow-lg" />
+
+          <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb"
+               class="h-44 sm:h-60 w-full object-cover rounded-3xl shadow-lg" />
+
+          <img src="https://images.unsplash.com/photo-1526378722484-bd91ca387e72"
+               class="h-44 sm:h-60 w-full object-cover rounded-3xl shadow-lg" />
+
+          <img src="https://images.unsplash.com/photo-1526498460520-4c246339dccb"
+               class="h-36 sm:h-44 w-full object-cover rounded-3xl shadow-lg" />
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDE CONTENT (SLIGHTLY SMALLER WIDTH) -->
+    <div class="order-2 md:order-2 max-w-xl">
+
+      <p class="text-cyan-600 font-semibold mb-4 tracking-wide">
+        ABOUT OUR AGENCY / COMPANY
+      </p>
+
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 leading-tight">
+        Delivering Innovation Through Technology
+      </h2>
+
+      <p class="mt-6 sm:mt-8 text-gray-600 leading-7 sm:leading-8 text-base sm:text-lg">
+        SDInfo_Tech is a modern technology company focused on frontend developers, backend engineers, full-stack developers,
+        QA testers, UI/UX designers, AI systems, automation and digital infrastructure solutions.
+      </p>
+
+      <p class="mt-5 text-gray-600 leading-7 sm:leading-8 text-base sm:text-lg">
+        We help businesses transform digitally through innovative technologies and scalable systems.
+      </p>
+
+      <!-- HIDDEN DESCRIPTION -->
+      <div id="moreText" class="hidden mt-6 text-gray-600 leading-7 sm:leading-8 text-base sm:text-lg">
+
+        <p>
+          Our company specializes in creating high-performance web applications,
+          enterprise software solutions, AI-powered systems, and modern cloud infrastructure.
+        </p>
+
+        <p class="mt-4">
+          We work with startups, businesses, and enterprises to deliver scalable,
+          secure, and future-ready digital products that improve business growth and efficiency.
+        </p>
+
+        <p class="mt-4">
+          Our expert team combines creativity, innovation, and advanced technologies
+          to build exceptional user experiences and intelligent automation solutions.
+        </p>
+
+      </div>
+
+      <!-- BUTTON -->
+      <button
+        onclick="document.getElementById('moreText').classList.toggle('hidden')"
+        class="mt-8 bg-cyan-500 hover:bg-cyan-600 transition-all text-white px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-semibold shadow-lg">
+        Learn More
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section id="services" class="py-28 px-6 bg-white">
+
+  <div class="max-w-7xl mx-auto">
+
+    <!-- HEADING -->
+    <div class="text-center mb-20">
+
+      <p class="text-cyan-600 font-semibold mb-4 tracking-wide">
+        WHAT WE DO
+      </p>
+
+      <h2 class="text-5xl font-black text-gray-900">
+        Our Services
+      </h2>
+
+    </div>
+
+    <!-- SERVICE GRID -->
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <!-- SOFTWARE DEVELOPMENT -->
+
+      <div class="service-card glass rounded-[30px] p-10">
+
+        <div class="text-6xl mb-6">
+          💻
+        </div>
+
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">
+          Software Development
+        </h3>
+
+        <p class="text-gray-600 leading-8">
+          Custom web applications, enterprise systems,
+          ERP software and scalable digital products.
+        </p>
+
+      </div>
+
+
+      <!-- UI/UX DESIGN -->
+      <div class="service-card backdrop-blur-xl bg-white border border-gray-200 rounded-[30px] p-10 shadow-xl hover:-translate-y-2 transition-all duration-300">
+
+        <div class="w-16 h-16 rounded-2xl bg-pink-100 flex items-center justify-center mb-6">
+
+          <svg xmlns="http://www.w3.org/2000/svg"
+               class="w-8 h-8 text-pink-600"
+               fill="none"
+               viewBox="0 0 24 24"
+               stroke="currentColor">
+
+            <path stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 4v16m8-8H4"/>
+
+          </svg>
+
+        </div>
+
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">
+          UI/UX Design
+        </h3>
+
+        <p class="text-gray-600 leading-8">
+          Creative and user-focused interface designs
+          for better engagement and experience.
+        </p>
+
+      </div>
+
+      <!-- E-COMMERCE -->
+      <div class="service-card backdrop-blur-xl bg-white border border-gray-200 rounded-[30px] p-10 shadow-xl hover:-translate-y-2 transition-all duration-300">
+
+        <div class="w-16 h-16 rounded-2xl bg-orange-100 flex items-center justify-center mb-6">
+
+          <svg xmlns="http://www.w3.org/2000/svg"
+               class="w-8 h-8 text-orange-600"
+               fill="none"
+               viewBox="0 0 24 24"
+               stroke="currentColor">
+
+            <path stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-1 5h12m-9 0a1 1 0 102 0m6 0a1 1 0 102 0"/>
+
+          </svg>
+
+        </div>
+
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">
+          E-Commerce Solutions
+        </h3>
+
+        <p class="text-gray-600 leading-8">
+          Complete online store development with
+          payment gateway integrations.
+        </p>
+
+      </div>
+
+       <!-- API DEVELOPMENT -->
+
+      <div class="service-card glass rounded-[30px] p-10">
+
+        <div class="text-6xl mb-6">
+          🔗
+        </div>
+
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">
+          API Development
+        </h3>
+
+        <p class="text-gray-600 leading-8">
+          RESTful APIs & backend integrations for scalable systems.
+          Secure and well-documented APIs built for modern applications.
+        </p>
+
+      </div>
+
+
+      <!-- MAINTENANCE -->
+      <div class="service-card backdrop-blur-xl bg-white border border-gray-200 rounded-[30px] p-10 shadow-xl hover:-translate-y-2 transition-all duration-300">
+
+        <div class="w-16 h-16 rounded-2xl bg-green-100 flex items-center justify-center mb-6">
+
+          <svg xmlns="http://www.w3.org/2000/svg"
+               class="w-8 h-8 text-green-600"
+               fill="none"
+               viewBox="0 0 24 24"
+               stroke="currentColor">
+
+            <path stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l2.01 6.184a1 1 0 00.95.69h6.505c.969 0 1.371 1.24.588 1.81l-5.26 3.82a1 1 0 00-.364 1.118l2.01 6.184c.3.921-.755 1.688-1.54 1.118l-5.26-3.82a1 1 0 00-1.176 0l-5.26 3.82c-.784.57-1.838-.197-1.539-1.118l2.01-6.184a1 1 0 00-.364-1.118l-5.26-3.82c-.783-.57-.38-1.81.588-1.81h6.505a1 1 0 00.95-.69l2.01-6.184z"/>
+
+          </svg>
+
+        </div>
+
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">
+          Maintenance & Support
+        </h3>
+
+        <p class="text-gray-600 leading-8">
+          Ongoing support, upgrades and
+          security monitoring solutions.
+        </p>
+
+      </div>
+
+      <!-- AI -->
+
+      <div class="service-card glass rounded-[30px] p-10">
+
+        <div class="text-6xl mb-6">
+          🤖
+        </div>
+
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">
+          AI & Automation
+        </h3>
+
+        <p class="text-gray-600 leading-8">
+          Smart automation systems, AI integrations,
+          chatbots and intelligent workflows.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- STATS -->
+
+<section class="py-20 px-6">
+
+  <div class="max-w-6xl mx-auto glass rounded-[40px] p-12">
+
+    <div class="grid md:grid-cols-4 gap-10 text-center">
+
+      <div>
+
+        <h3 class="text-5xl font-black hero-gradient">
+          30+
+        </h3>
+
+        <p class="text-gray-600 mt-3">
+          Projects
+        </p>
+
+      </div>
+
+      <div>
+
+        <h3 class="text-5xl font-black hero-gradient">
+          45+
+        </h3>
+
+        <p class="text-gray-600 mt-3">
+          Clients
+        </p>
+
+      </div>
+
+      <div>
+
+        <h3 class="text-5xl font-black hero-gradient">
+          3+
+        </h3>
+
+        <p class="text-gray-600 mt-3">
+          Years Experience
+        </p>
+
+      </div>
+
+      <div>
+
+        <h3 class="text-5xl font-black hero-gradient">
+          95%
+        </h3>
+
+        <p class="text-gray-600 mt-3">
+          Satisfaction
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<!-- WHY CHOOSE US -->
+
+<section class="py-28 px-6">
+
+  <div class="max-w-7xl mx-auto">
+
+    <div class="text-center mb-20">
+
+      <p class="text-cyan-600 font-semibold mb-4">
+        WHY CHOOSE US
+      </p>
+
+      <h2 class="text-5xl font-black text-gray-900">
+        Smart Solutions For Modern Businesses
+      </h2>
+
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <div class="glass rounded-[30px] p-10">
+
+        <div class="text-5xl mb-6">
+          ⚡
+        </div>
+
+        <h3 class="text-2xl font-bold mb-4">
+          Fast Development
+        </h3>
+
+        <p class="text-gray-600 leading-8">
+          High performance websites and scalable software solutions.
+        </p>
+
+      </div>
+
+      <div class="glass rounded-[30px] p-10">
+
+        <div class="text-5xl mb-6">
+          🔒
+        </div>
+
+        <h3 class="text-2xl font-bold mb-4">
+          Secure Systems
+        </h3>
+
+        <p class="text-gray-600 leading-8">
+          Enterprise-grade security and reliable infrastructure.
+        </p>
+
+      </div>
+
+      <div class="glass rounded-[30px] p-10">
+
+        <div class="text-5xl mb-6">
+          🚀
+        </div>
+
+        <h3 class="text-2xl font-bold mb-4">
+          Modern Technology
+        </h3>
+
+        <p class="text-gray-600 leading-8">
+          Latest frameworks, AI systems and cloud technologies.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="py-28 px-6 bg-gray-50">
+
+  <div class="max-w-7xl mx-auto">
+
+    <!-- HEADING -->
+    <div class="text-center mb-20">
+      <p class="text-cyan-600 font-semibold mb-4 tracking-wide">
+        OUR WORK
+      </p>
+      <h2 class="text-5xl font-black text-gray-900">
+        Featured Projects
+      </h2>
+    </div>
+
+    <!-- GRID -->
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <!-- PROJECT 1 : MAZI BHARATI -->
+
+      <div class="project-card backdrop-blur-xl bg-white border border-gray-200 rounded-[30px] overflow-hidden shadow-xl">
+        <div class="h-64 bg-gradient-to-b from-orange-500 via-white to-green-600 flex items-center justify-center">
+          <div class="w-20 h-20 rounded-full border-4 border-blue-700"></div>
+        </div>
+        <div class="p-8">
+          <h3 class="text-2xl font-bold">Mazi Bharati</h3>
+          <p class="mt-3 text-gray-600">Government and recruitment management platform for Police, Army and public sector services.</p>
+          <div class="mt-5 flex flex-wrap gap-3">
+            <span class="px-4 py-2 bg-orange-100 text-orange-700 rounded-full text-sm">HTML</span>
+            <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm">CSS</span>
+            <span class="px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm">JavaScript</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 2 : AGRIMITRA -->
+
+      <div class="project-card backdrop-blur-xl bg-white border border-gray-200 rounded-[30px] overflow-hidden shadow-xl">
+        <div class="h-64 bg-gradient-to-br from-lime-400 via-green-500 to-emerald-700"></div>
+        <div class="p-8">
+          <h3 class="text-2xl font-bold">AgriMitra</h3>
+          <p class="mt-3 text-gray-600">Agriculture related services and information platform.</p>
+          <div class="mt-5 flex flex-wrap gap-3">
+            <span class="px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm">Flutter</span>
+            <span class="px-4 py-2 bg-emerald-100 text-emerald-700 rounded-full text-sm">Firebase</span>
+          </div>
+        </div>
+      </div>
+
+     <!-- PROJECT 3 : PARKING -->
+
+      <div class="project-card backdrop-blur-xl bg-white border border-gray-200 rounded-[30px] overflow-hidden shadow-xl">
+        <div class="h-64 bg-gradient-to-br from-slate-700 via-gray-800 to-black flex items-center justify-center text-white text-5xl font-bold">
+          P
+        </div>
+        <div class="p-8">
+          <h3 class="text-2xl font-bold">Online Parking System</h3>
+          <p class="mt-3 text-gray-600">Smart vehicle parking and slot management system.</p>
+          <div class="mt-5 flex flex-wrap gap-3">
+            <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm">Python</span>
+            <span class="px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm">SQL</span>
+            <span class="px-4 py-2 bg-orange-100 text-orange-700 rounded-full text-sm">HTML</span>
+          </div>
+        </div>
+      </div>
+
+       <!-- PROJECT 4 : STUDENT MANAGEMENT -->
+
+      <div class="project-card backdrop-blur-xl bg-white border border-gray-200 rounded-[30px] overflow-hidden shadow-xl">
+        <div class="h-64 bg-gradient-to-br from-pink-400 via-purple-500 to-indigo-600 flex items-center justify-center text-white text-7xl">
+          🎓
+        </div>
+        <div class="p-8">
+          <h3 class="text-2xl font-bold">Student Management System</h3>
+          <p class="mt-3 text-gray-600">Smart educational management system.</p>
+          <div class="mt-5 flex flex-wrap gap-3">
+            <span class="px-4 py-2 bg-pink-100 text-pink-700 rounded-full text-sm">Laravel</span>
+            <span class="px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm">MySQL</span>
+            <span class="px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full text-sm">Tailwind</span>
+          </div>
+        </div>
+      </div>
+
+       <!-- PROJECT 5 : LIBRARY -->
+
+      <div class="project-card backdrop-blur-xl bg-white border border-gray-200 rounded-[30px] overflow-hidden shadow-xl">
+        <div class="h-64 bg-gradient-to-br from-amber-400 via-yellow-500 to-orange-600 flex items-center justify-center text-7xl">
+          📚
+        </div>
+        <div class="p-8">
+          <h3 class="text-2xl font-bold">Library System</h3>
+          <p class="mt-3 text-gray-600">Modern digital library management platform.</p>
+          <div class="mt-5 flex flex-wrap gap-3">
+            <span class="px-4 py-2 bg-yellow-100 text-yellow-700 rounded-full text-sm">Java</span>
+            <span class="px-4 py-2 bg-amber-100 text-amber-700 rounded-full text-sm">Spring Boot</span>
+            <span class="px-4 py-2 bg-orange-100 text-orange-700 rounded-full text-sm">PostgreSQL</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 6 (OUR WEBSITE) -->
+      <div class="project-card backdrop-blur-xl bg-white border border-gray-200 rounded-[30px] overflow-hidden shadow-xl">
+        <div class="h-64 bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-600 flex items-center justify-center text-white text-3xl font-bold">
+          SDInfo_Tech
+        </div>
+        <div class="p-8">
+          <h3 class="text-2xl font-bold">My Portfolio Website</h3>
+          <p class="mt-3 text-gray-600">
+            Modern responsive company website built using HTML, Tailwind CSS, EmailJS and GSAP animations.
+          </p>
+          <div class="mt-5 flex flex-wrap gap-3">
+            <span class="px-4 py-2 bg-cyan-100 text-cyan-700 rounded-full text-sm">HTML & CSS</span>
+            <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm">JavaScript</span>
+            <span class="px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm">EmailJS</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- TECHNOLOGIES SECTION -->
+
+<section class="py-28 px-6">
+
+  <div class="max-w-7xl mx-auto text-center">
+
+    <!-- TITLE -->
+    <p class="text-cyan-600 font-semibold mb-4">TECHNOLOGIES</p>
+
+    <h2 class="text-5xl font-black text-gray-900 mb-6">Our Tech Stack</h2>
+
+    <p class="text-gray-600 max-w-2xl mx-auto mb-16 leading-8">We use modern technologies to build scalable, fast and secure applications.</p>
+
+    <!-- ROW 1 (RIGHT → LEFT) -->
+    <div class="overflow-hidden whitespace-nowrap mb-10">
+      <div class="flex gap-10 animate-left w-max">
+
+        <div class="tech-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"/>
+          <p>React</p>
+        </div>
+
+        <div class="tech-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"/>
+          <p>Next.js</p>
+        </div>
+
+        <div class="tech-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"/>
+          <p>Node.js</p>
+        </div>
+
+        <div class="tech-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"/>
+          <p>MongoDB</p>
+        </div>
+
+        <div class="tech-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"/>
+          <p>Docker</p>
+        </div>
+
+        <div class="tech-card">
+          <img src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-ar21.svg"alt="Amazon AWS"/>
+          <p>AWS</p>
+        </div>
+      <div class="tech-card">
+         <img src="https://www.vectorlogo.zone/logos/jquery/jquery-ar21.svg"alt="jQuery"/>
+         <p>JQuery</p>
+      </div>
+      <div class="tech-card">
+         <img src="https://www.vectorlogo.zone/logos/djangoproject/djangoproject-ar21.svg" alt="Django"/>
+         <p>Django</p>
+      </div>
+      <div class="tech-card">
+        <img src="https://www.vectorlogo.zone/logos/python/python-ar21.svg" alt="Python"/>
+         <p>Python</p>
+      </div>
+
+
+
+      </div>
+    </div>
+
+    <!-- ROW 2 (LEFT → RIGHT) -->
+    <div class="overflow-hidden whitespace-nowrap">
+      <div class="flex gap-10 animate-right w-max">
+
+        <div class="tech-card">
+          <div class="emoji">🤖</div>
+          <p>AI / OpenAI</p>
+        </div>
+
+        <div class="tech-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"/>
+          <p>Firebase</p>
+        </div>
+
+       <div class="tech-card">
+  <img 
+    src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg"
+    alt="Tailwind CSS"
+    class="tech-logo"
+  />
+  <p>Tailwind</p>
+</div>
+ <div class="tech-card">
+          <div class="emoji">☁️</div>
+          <p>Cloud</p>
+        </div>
+
+
+<div class="tech-card">
+  <img
+    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg"
+    alt="GraphQL"
+    class="tech-logo"
+  />
+  <p>GraphQL</p>
+</div>
+
+<div class="tech-card">
+  <img src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-ar21.svg"alt="HTML5"/>
+  <p>HTML</p>
+</div>
+
+<div class="tech-card">
+<img src="https://www.vectorlogo.zone/logos/w3_css/w3_css-ar21.svg"alt="CSS3"/>
+  <p>CSS</p>
+</div>
+
+        <div class="tech-card">
+          <div class="emoji">📱</div>
+          <p>React Native</p>
+        </div>
+
+        <div class="tech-card">
+          <div class="emoji">🐳</div>
+          <p>DevOps</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- START YOUR PROJECT -->
+
+<section id="start-project" class="py-32 px-6 relative overflow-hidden">
+
+  <!-- GLOW -->
+  <div class="absolute top-[-120px] left-[-120px] w-[350px] h-[350px] bg-cyan-300 opacity-30 blur-[120px] rounded-full"></div>
+
+  <div class="absolute bottom-[-120px] right-[-120px] w-[350px] h-[350px] bg-purple-400 opacity-30 blur-[120px] rounded-full"></div>
+
+  <div class="max-w-7xl mx-auto">
+
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+
+      <!-- LEFT CONTENT -->
+      <div>
+
+        <p class="text-cyan-600 font-semibold tracking-[3px] uppercase mb-6">
+          Start Your Project
+        </p>
+
+        <h2 class="text-5xl md:text-7xl font-black leading-tight text-gray-900">
+
+          Tell Us About
+
+          <span class="bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600 bg-clip-text text-transparent">
+            Your Idea
+          </span>
+
+        </h2>
+
+        <p class="mt-8 text-gray-600 text-lg leading-8 max-w-xl">
+
+          Share your project requirements and our team will
+          help you transform your idea into a modern digital product.
+
+        </p>
+
+        <!-- FEATURES -->
+
+        <div class="mt-10 space-y-5">
+
+          <div class="glass px-6 py-5 rounded-2xl flex items-center gap-4">
+            <div class="text-3xl">⚡</div>
+            <div>
+              <h4 class="font-bold text-lg">Fast Delivery</h4>
+              <p class="text-gray-500 text-sm">
+                Modern scalable solutions.
+              </p>
+            </div>
+          </div>
+
+          <div class="glass px-6 py-5 rounded-2xl flex items-center gap-4">
+            <div class="text-3xl">🤖</div>
+            <div>
+              <h4 class="font-bold text-lg">AI Integration</h4>
+              <p class="text-gray-500 text-sm">
+                Smart automation & AI systems.
+              </p>
+            </div>
+          </div>
+
+          <div class="glass px-6 py-5 rounded-2xl flex items-center gap-4">
+            <div class="text-3xl">🚀</div>
+            <div>
+              <h4 class="font-bold text-lg">Premium Design</h4>
+              <p class="text-gray-500 text-sm">
+                Beautiful modern UI/UX experience.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT FORM -->
+      <div class="backdrop-blur-2xl bg-white/40 border border-white/40 rounded-[40px] p-10 shadow-[0_20px_80px_rgba(0,0,0,0.08)]">
+
+       <form id="projectForm" class="space-y-6">
+
+  <!-- NAME -->
+  <div>
+    <label class="text-sm font-medium text-gray-700">
+      Full Name
+    </label>
+
+    <input
+      type="text"
+      name="name"
+      required
+      placeholder="Enter your name"
+      class="w-full mt-3 p-4 rounded-2xl bg-white/60 border border-white/50 outline-none focus:ring-2 focus:ring-cyan-400"
+    />
+  </div>
+
+  <!-- EMAIL -->
+  <div>
+    <label class="text-sm font-medium text-gray-700">
+      Email Address
+    </label>
+
+    <input
+      type="email"
+      name="email"
+      required
+      placeholder="Enter your email"
+      class="w-full mt-3 p-4 rounded-2xl bg-white/60 border border-white/50 outline-none focus:ring-2 focus:ring-cyan-400"
+    />
+  </div>
+
+  <!-- PROJECT TYPE -->
+  <div>
+    <label class="text-sm font-medium text-gray-700">
+      Project Type
+    </label>
+
+    <select
+      name="project_type"
+      required
+      class="w-full mt-3 p-4 rounded-2xl bg-white/60 border border-white/50 outline-none focus:ring-2 focus:ring-cyan-400"
+    >
+      <option value="">Select Project Type</option>
+      <option>Website Development</option>
+      <option>Mobile App</option>
+      <option>AI Solution</option>
+      <option>UI/UX Design</option>
+      <option>E-Commerce</option>
+      <option>Custom Software</option>
+    </select>
+  </div>
+
+  <!-- BUDGET -->
+  <div>
+    <label class="text-sm font-medium text-gray-700">
+      Budget Range
+    </label>
+
+    <select
+      name="budget"
+      required
+      class="w-full mt-3 p-4 rounded-2xl bg-white/60 border border-white/50 outline-none focus:ring-2 focus:ring-cyan-400"
+    >
+      <option value="">Select Budget</option>
+      <option>₹0k - ₹10k</option>
+      <option>₹10k - ₹25k</option>
+      <option>₹25k - ₹50k</option>
+      <option>₹50k - ₹1L</option>
+      <option>₹1L+</option>
+    </select>
+  </div>
+
+  <!-- MESSAGE -->
+  <div>
+    <label class="text-sm font-medium text-gray-700">
+      Project Details
+    </label>
+
+    <textarea
+      name="message"
+      rows="5"
+      required
+      placeholder="Tell us about your project..."
+      class="w-full mt-3 p-4 rounded-2xl bg-white/60 border border-white/50 outline-none resize-none focus:ring-2 focus:ring-cyan-400"
+    ></textarea>
+  </div>
+
+  <!-- BUTTON -->
+  <button
+    id="projectBtn"
+    type="submit"
+    class="w-full py-5 rounded-2xl font-semibold text-lg text-white bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600 hover:scale-[1.02] transition-all duration-300 shadow-2xl"
+  >
+    🚀 Submit Project Idea
+  </button>
+
+  <!-- STATUS -->
+  <p id="projectStatus" class="text-center font-medium"></p>
+
+</form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section id="contact" class="py-28 px-6">
+
+  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+
+   <!-- LEFT SIDE INFO -->
+    <div class="-mt-20">
+
+      <p class="text-cyan-600 font-semibold mb-4">
+        Contact US
+      </p>
+
+      <h2 class="text-5xl font-black text-gray-900 leading-tight">
+        We’re Here To Resolve Your Issues
+        <span class="hero-gradient">Great Together</span>
+      </h2>
+
+      <p class="mt-6 text-gray-600 text-lg leading-8">
+        If you experience any issue with our website, projects, or services, feel free to reach out through this form. We are here to assist you and ensure a smooth experience for all users.
+      </p>
+
+     <div class="mt-8 space-y-4">
+
+  <div class="glass px-5 py-4 rounded-2xl">
+    📧 sdinfotech009@gmail.com
+  </div>
+
+  <div class="glass px-5 py-4 rounded-2xl">
+    📞 +91 7738392021
+  </div>
+
+ <div class="glass px-5 py-4 rounded-2xl">
+  💬 
+  <a href="https://wa.me/917738392021" target="_blank" class="hover:text-cyan-500">WhatsApp Chat</a>
+</div>
+
+<div class="glass px-5 py-4 rounded-2xl">
+  📸 
+  <a href="https://instagram.com/sdinfo_tech" target="_blank" class="hover:text-cyan-500">@sdinfo_tech</a>
+</div>
+
+  <div class="glass px-5 py-4 rounded-2xl">
+    📍 Sangola, Maharashtra
+  </div>
+
+</div>
+    </div>
+
+   <!-- RIGHT SIDE FORM -->
+<div id="complaint-form" class="glass p-10 rounded-[40px]">
+
+  <!-- FORM HEADING -->
+  <div class="mb-8 text-center">
+
+    <h3 class="text-3xl font-black text-cyan-600 mb-4">
+      Customer Support & Complaints
+    </h3>
+
+    <p class="text-gray-600 mt-2">
+      Submit your issue and our team will contact you shortly.
+    </p>
+
+  </div>
+
+  <form id="complaintForm" class="space-y-5">
+
+  <!-- TITLE -->
+  <div>
+    <label class="text-sm text-gray-600 font-medium">
+      Complaint Title
+    </label>
+
+    <input
+      type="text"
+      name="title"
+      required
+      placeholder="Enter complaint title"
+      class="w-full mt-2 p-4 rounded-2xl bg-white/70 border border-white outline-none focus:ring-2 focus:ring-cyan-400"
+    />
+  </div>
+
+  <!-- NAME -->
+  <div>
+    <label class="text-sm text-gray-600 font-medium">
+      Full Name
+    </label>
+
+    <input
+      type="text"
+      name="name"
+      required
+      placeholder="Enter your name"
+      class="w-full mt-2 p-4 rounded-2xl bg-white/70 border border-white outline-none focus:ring-2 focus:ring-cyan-400"
+    />
+  </div>
+
+  <!-- EMAIL -->
+  <div>
+    <label class="text-sm text-gray-600 font-medium">
+      Email Address
+    </label>
+
+    <input
+      type="email"
+      name="email"
+      required
+      placeholder="Enter your email"
+      class="w-full mt-2 p-4 rounded-2xl bg-white/70 border border-white outline-none focus:ring-2 focus:ring-cyan-400"
+    />
+  </div>
+
+  <!-- PHONE -->
+  <div>
+    <label class="text-sm text-gray-600 font-medium">
+      Phone Number
+    </label>
+
+    <input
+      type="tel"
+      name="phone"
+      required
+      placeholder="Enter phone number"
+      class="w-full mt-2 p-4 rounded-2xl bg-white/70 border border-white outline-none focus:ring-2 focus:ring-cyan-400"
+    />
+  </div>
+
+  <!-- PRIORITY -->
+  <div>
+    <label class="text-sm text-gray-600 font-medium">
+      Complaint Priority
+    </label>
+
+    <select
+      name="priority"
+      required
+      class="w-full mt-2 p-4 rounded-2xl bg-white/70 border border-white outline-none focus:ring-2 focus:ring-cyan-400"
+    >
+      <option value="">Select Priority</option>
+      <option>Low</option>
+      <option>Medium</option>
+      <option>High</option>
+      <option>Urgent</option>
+    </select>
+  </div>
+
+  <!-- MESSAGE -->
+  <div>
+    <label class="text-sm text-gray-600 font-medium">
+      Complaint Details
+    </label>
+
+    <textarea
+      name="message"
+      rows="5"
+      required
+      placeholder="Describe your complaint..."
+      class="w-full mt-2 p-4 rounded-2xl bg-white/70 border border-white outline-none resize-none focus:ring-2 focus:ring-cyan-400"
+    ></textarea>
+  </div>
+
+  <!-- BUTTON -->
+  <button
+    id="complaintBtn"
+    type="submit"
+    class="btn-primary w-full py-4 rounded-2xl font-semibold text-lg"
+  >
+    🚨 Submit Complaint
+  </button>
+
+  <p id="complaintStatus" class="text-center font-medium"></p>
+
+</form>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer class="py-10 text-center text-gray-500">
+
+  © 2026 SDInfo_Tech. All Rights Reserved.
+
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+/* TITLE ANIMATION */
+gsap.utils.toArray(".gsap-reveal").forEach((el) => {
+  gsap.to(el, {
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: el,
+      start: "top 85%"
+    }
+  });
+});
+
+/* CARDS ANIMATION */
+gsap.utils.toArray(".tech-card").forEach((card, i) => {
+  gsap.to(card, {
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    delay: i * 0.1,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: card,
+      start: "top 90%"
+    }
+  });
+});
+</script>
+<script>
+
+  // EMAILJS INIT
+  emailjs.init("-AO2ZPfYGFGfjSJzQ");
+
+  // =========================
+  // PROJECT FORM
+  // =========================
+
+  const projectForm = document.getElementById("projectForm");
+  const projectBtn = document.getElementById("projectBtn");
+  const projectStatus = document.getElementById("projectStatus");
+
+  projectForm.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    projectBtn.innerHTML = "Sending...";
+    projectBtn.disabled = true;
+
+    emailjs.sendForm(
+      "service_u3hm69r",
+      "template_z5rz30p",
+      projectForm
+    )
+
+    .then(() => {
+
+      projectStatus.innerHTML = "✅ Project Submitted Successfully!";
+      projectStatus.className = "text-green-600 text-center font-medium";
+
+      projectForm.reset();
+
+    })
+
+    .catch((error) => {
+
+      console.log(error);
+
+      projectStatus.innerHTML = "❌ Failed To Submit.";
+      projectStatus.className = "text-red-600 text-center font-medium";
+
+    })
+
+    .finally(() => {
+
+      projectBtn.innerHTML = "🚀 Submit Project Idea";
+      projectBtn.disabled = false;
+
+    });
+
+  });
+
+
+  // =========================
+  // COMPLAINT FORM
+  // =========================
+
+  const complaintForm = document.getElementById("complaintForm");
+  const complaintBtn = document.getElementById("complaintBtn");
+  const complaintStatus = document.getElementById("complaintStatus");
+
+  complaintForm.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    complaintBtn.innerHTML = "Submitting...";
+    complaintBtn.disabled = true;
+
+    emailjs.sendForm(
+      "service_u3hm69r",
+      "template_xvq9t6i",
+      complaintForm
+    )
+
+    .then(() => {
+
+      complaintStatus.innerHTML = "✅ Complaint Submitted Successfully!";
+      complaintStatus.className = "text-green-600 text-center font-medium";
+
+      complaintForm.reset();
+
+    })
+
+    .catch((error) => {
+
+      console.log(error);
+
+      complaintStatus.innerHTML = "❌ Failed To Submit Complaint.";
+      complaintStatus.className = "text-red-600 text-center font-medium";
+
+    })
+
+    .finally(() => {
+
+      complaintBtn.innerHTML = "🚨 Submit Complaint";
+      complaintBtn.disabled = false;
+
+    });
+
+  });
+
+</script>
+</body>
+</html>
