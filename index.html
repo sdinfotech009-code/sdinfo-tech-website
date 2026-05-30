@@ -9,26 +9,168 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <style>
+/* =========================
+   HERO BACKGROUND EFFECT
+========================= */
+
+.hero-bg{
+  position:relative;
+  overflow:hidden;
+}
+
+.hero-bg::before{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      rgba(0,0,0,0.35),
+      rgba(0,0,0,0.20)
+    ),
+    url("bg-tech.jpg");
+
+  background-size:cover;
+  background-position:center;
+
+  animation:heroZoom 18s ease-in-out infinite alternate;
+
+  z-index:-3;
+}
+
+.hero-bg::after{
+  content:"";
+  position:absolute;
+
+  width:180%;
+  height:180%;
+
+  top:-40%;
+  left:-40%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,255,255,0.12) 0%,
+      transparent 65%
+    );
+
+  animation:rotateGlow 35s linear infinite;
+
+  z-index:-2;
+}
+
+/* PARTICLES */
+
+.particles{
+  position:absolute;
+  inset:0;
+
+  background-image:
+    radial-gradient(
+      rgba(255,255,255,0.18) 1px,
+      transparent 1px
+    );
+
+  background-size:40px 40px;
+
+  animation:moveParticles 30s linear infinite;
+
+  opacity:0.35;
+
+  z-index:-1;
+}
+
+/* ANIMATIONS */
+
+@keyframes heroZoom{
+  0%{
+    transform:scale(1);
+  }
+
+  100%{
+    transform:scale(1.08);
+  }
+}
+
+@keyframes rotateGlow{
+  0%{
+    transform:rotate(0deg);
+  }
+
+  100%{
+    transform:rotate(360deg);
+  }
+}
+
+@keyframes moveParticles{
+  0%{
+    background-position:0 0;
+  }
+
+  100%{
+    background-position:0 1000px;
+  }
+}
+
+
 
     html{
       scroll-behavior:smooth;
     }
 
-    body{
+body{
   font-family: ui-sans-serif, system-ui;
   overflow-x:hidden;
+  position:relative;
+  background:#f8fafc;
+}
+
+/* FULL WEBSITE BACKGROUND */
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
 
   background:
     linear-gradient(
-      rgba(255,255,255,0.75),
-      rgba(255,255,255,0.75)
+      rgba(255,255,255,0.55),
+      rgba(255,255,255,0.35)
     ),
-    url("background.jpeg");
+    url("bg-tech.jpg");
 
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+
+  animation:heroZoom 18s ease-in-out infinite alternate;
+
+  z-index:-5;
+}
+
+/* GLOW EFFECT */
+
+body::after{
+  content:"";
+  position:fixed;
+
+  width:180%;
+  height:180%;
+
+  top:-40%;
+  left:-40%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0,255,255,0.10) 0%,
+      transparent 65%
+    );
+
+  animation:rotateGlow 35s linear infinite;
+
+  z-index:-4;
 }
 
     .nav-link.active{
@@ -163,11 +305,17 @@
       display:flex;
       animation: moveRight 20s linear infinite;
     }
+.gsap-reveal{
+  opacity:0;
+  transform:translateY(40px);
+}
 
   </style>
 </head>
 
 <body>
+
+<div class="particles"></div>
 
 <div class="glow top-[-150px] left-[-100px] bg-purple-300"></div>
 <div class="glow bottom-[-150px] right-[-100px] bg-cyan-300"></div>
@@ -193,12 +341,12 @@
       </div>
 
       <nav class="hidden md:flex items-center gap-10 ml-16 text-gray-700 font-medium">
-        <a href="#home">🏠 Home</a>
-        <a href="#services">⚙️ Services</a>
-        <a href="#projects">📁 Projects</a>
-        <a href="#start-project">💡Share Ideas</a>
-        <a href="#contact">📞 Contact</a>
-        <a href="#complaint-form">🤝 Customer Care</a>
+        <a href="#home" class="nav-link">🏠 Home</a>
+        <a href="#services" class="nav-link">⚙️ Services</a>
+        <a href="#projects" class="nav-link">📁 Projects</a>
+        <a href="#start-project" class="nav-link">💡Share Ideas</a>
+        <a href="#contact" class="nav-link">📞 Contact</a>
+        <a href="#complaint-form" class="nav-link">🤝 Customer Care</a>
       </nav>
 
     </div>
@@ -206,39 +354,51 @@
 </header>
 
 <!-- HERO SECTION -->
+
 <section id="home" class="min-h-screen flex items-center justify-center px-6 sm:px-10 lg:px-16 pt-28 pb-16">
+  <div class="particles"></div>
 
-  <div class="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+  <div class="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center relative z-10">
 
-    <!-- ✅ ONLY CHANGE HERE (SHIFTED RIGHT) -->
+    <!-- LEFT CONTENT -->
+
     <div class="text-center md:text-left md:pl-16 lg:pl-24 xl:pl-32">
 
-      <p class="text-cyan-600 font-semibold mb-4 tracking-wide text-sm sm:text-base">
+      <p class="text-cyan-600 font-semibold mb-4 tracking-wide">
         DIGITAL & INFRASTRUCTURE SOLUTIONS
       </p>
 
-      <h1 class="text-4xl sm:text-5xl lg:text-7xl font-black leading-tight text-gray-900">
+      <h1 class="text-4xl sm:text-5xl lg:text-7xl font-black leading-tight text-white">
+
         Building The
-        <span class="bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent">
+
+        <span class="bg-gradient-to-r from-cyan-300 to-blue-400 bg-clip-text text-transparent">
           Future
         </span>
+
         Through Technology
+
       </h1>
 
-      <p class="mt-6 sm:mt-8 text-gray-600 text-base sm:text-lg leading-7 sm:leading-8 max-w-xl mx-auto md:mx-0">
-        We create modern software systems, AI solutions, enterprise applications and infrastructure platforms for fast-growing businesses.
+     <p class="mt-6 sm:mt-8 text-gray-800 leading-7 sm:leading-8 text-base sm:text-lg">
+
+        We create modern software systems,
+        AI solutions, enterprise applications
+        and infrastructure platforms
+        for fast-growing businesses.
+
       </p>
 
       <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
 
         <a href="#start-project">
-          <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-4 rounded-2xl font-semibold shadow-lg">
+          <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-4 rounded-2xl font-semibold shadow-2xl hover:scale-105 transition-all duration-300">
             🚀 Get Started
           </button>
         </a>
 
         <a href="#projects">
-          <button class="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-4 rounded-2xl font-semibold shadow-lg">
+          <button class="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-4 rounded-2xl font-semibold shadow-2xl hover:scale-105 transition-all duration-300">
             ⚡ Explore Work
           </button>
         </a>
@@ -247,16 +407,26 @@
 
     </div>
 
-    <!-- RIGHT CONTENT SAME -->
-    <div class="backdrop-blur-xl bg-white border border-gray-200 rounded-[40px] p-6 sm:p-10 shadow-2xl">
+    <!-- RIGHT SIDE -->
+
+    <div class="backdrop-blur-2xl bg-white/50 backdrop-blur-xl backdrop-blur-xl border border-white/20 rounded-[40px] p-6 sm:p-10 shadow-[0_20px_80px_rgba(0,0,0,0.35)]">
+
       <div class="grid grid-cols-2 gap-4 sm:gap-5">
 
-        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" class="h-40 sm:h-44 w-full object-cover rounded-3xl shadow-lg"/>
-        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475" class="h-52 sm:h-60 w-full object-cover rounded-3xl shadow-lg"/>
-        <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb" class="h-52 sm:h-60 w-full object-cover rounded-3xl shadow-lg"/>
-        <img src="https://images.unsplash.com/photo-1526498460520-4c246339dccb" class="h-40 sm:h-44 w-full object-cover rounded-3xl shadow-lg"/>
+        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b"
+             class="h-40 sm:h-44 w-full object-cover rounded-3xl shadow-lg hover:scale-105 transition-all duration-500"/>
+
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475"
+             class="h-52 sm:h-60 w-full object-cover rounded-3xl shadow-lg hover:scale-105 transition-all duration-500"/>
+
+        <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb"
+             class="h-52 sm:h-60 w-full object-cover rounded-3xl shadow-lg hover:scale-105 transition-all duration-500"/>
+
+        <img src="https://images.unsplash.com/photo-1526498460520-4c246339dccb"
+             class="h-40 sm:h-44 w-full object-cover rounded-3xl shadow-lg hover:scale-105 transition-all duration-500"/>
 
       </div>
+
     </div>
 
   </div>
@@ -264,14 +434,14 @@
 </section>
 
 <!-- ABOUT SECTION -->
-<section class="py-28 px-6 bg-gray-50">
+<section class="py-28 px-6">
 
   <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
 
     <!-- LEFT SIDE IMAGES (SLIGHTLY BIGGER) -->
     <div class="flex justify-center order-1 md:order-1 md:scale-[1.05]">
 
-      <div class="backdrop-blur-xl bg-white/20 border border-white/20 rounded-[30px] sm:rounded-[40px] p-6 sm:p-10 shadow-2xl w-full max-w-[420px]">
+      <div class="backdrop-blur-xl bg-white/50 backdrop-blur-xl backdrop-blur-xl/20 border border-white/20 rounded-[30px] sm:rounded-[40px] p-6 sm:p-10 shadow-2xl w-full max-w-[420px]">
 
         <div class="grid grid-cols-2 gap-4 sm:gap-5">
 
@@ -304,17 +474,17 @@
         Delivering Innovation Through Technology
       </h2>
 
-      <p class="mt-6 sm:mt-8 text-gray-600 leading-7 sm:leading-8 text-base sm:text-lg">
+      <p class="mt-6 sm:mt-8 text-gray-800 leading-7 sm:leading-8 text-base sm:text-lg">
         SDInfo_Tech is a modern technology company focused on frontend developers, backend engineers, full-stack developers,
         QA testers, UI/UX designers, AI systems, automation and digital infrastructure solutions.
       </p>
 
-      <p class="mt-5 text-gray-600 leading-7 sm:leading-8 text-base sm:text-lg">
+      <p class="mt-5 text-gray-800 leading-7 sm:leading-8 text-base sm:text-lg">
         We help businesses transform digitally through innovative technologies and scalable systems.
       </p>
 
       <!-- HIDDEN DESCRIPTION -->
-      <div id="moreText" class="hidden mt-6 text-gray-600 leading-7 sm:leading-8 text-base sm:text-lg">
+      <div id="moreText" class="hidden mt-6 text-gray-800 leading-7 sm:leading-8 text-base sm:text-lg">
 
         <p>
           Our company specializes in creating high-performance web applications,
@@ -348,7 +518,7 @@
 
 <!-- SERVICES -->
 
-<section id="services" class="py-28 px-6 bg-white">
+<section id="services" class="py-28 px-6">
 
   <div class="max-w-7xl mx-auto">
 
@@ -380,7 +550,7 @@
           Software Development
         </h3>
 
-        <p class="text-gray-600 leading-8">
+        <p class="text-gray-800 leading-8">
           Custom web applications, enterprise systems,
           ERP software and scalable digital products.
         </p>
@@ -389,7 +559,7 @@
 
 
       <!-- UI/UX DESIGN -->
-      <div class="service-card backdrop-blur-xl bg-white border border-gray-200 rounded-[30px] p-10 shadow-xl hover:-translate-y-2 transition-all duration-300">
+      <div class="service-card backdrop-blur-xl bg-white/50 backdrop-blur-xl backdrop-blur-xl border border-gray-200 rounded-[30px] p-10 shadow-xl hover:-translate-y-2 transition-all duration-300">
 
         <div class="w-16 h-16 rounded-2xl bg-pink-100 flex items-center justify-center mb-6">
 
@@ -412,7 +582,7 @@
           UI/UX Design
         </h3>
 
-        <p class="text-gray-600 leading-8">
+        <p class="text-gray-800 leading-8">
           Creative and user-focused interface designs
           for better engagement and experience.
         </p>
@@ -420,7 +590,7 @@
       </div>
 
       <!-- E-COMMERCE -->
-      <div class="service-card backdrop-blur-xl bg-white border border-gray-200 rounded-[30px] p-10 shadow-xl hover:-translate-y-2 transition-all duration-300">
+      <div class="service-card backdrop-blur-xl bg-white/50 backdrop-blur-xl backdrop-blur-xl border border-gray-200 rounded-[30px] p-10 shadow-xl hover:-translate-y-2 transition-all duration-300">
 
         <div class="w-16 h-16 rounded-2xl bg-orange-100 flex items-center justify-center mb-6">
 
@@ -443,7 +613,7 @@
           E-Commerce Solutions
         </h3>
 
-        <p class="text-gray-600 leading-8">
+        <p class="text-gray-800 leading-8">
           Complete online store development with
           payment gateway integrations.
         </p>
@@ -462,7 +632,7 @@
           API Development
         </h3>
 
-        <p class="text-gray-600 leading-8">
+        <p class="text-gray-800 leading-8">
           RESTful APIs & backend integrations for scalable systems.
           Secure and well-documented APIs built for modern applications.
         </p>
@@ -471,7 +641,7 @@
 
 
       <!-- MAINTENANCE -->
-      <div class="service-card backdrop-blur-xl bg-white border border-gray-200 rounded-[30px] p-10 shadow-xl hover:-translate-y-2 transition-all duration-300">
+      <div class="service-card backdrop-blur-xl bg-white/50 backdrop-blur-xl backdrop-blur-xl border border-gray-200 rounded-[30px] p-10 shadow-xl hover:-translate-y-2 transition-all duration-300">
 
         <div class="w-16 h-16 rounded-2xl bg-green-100 flex items-center justify-center mb-6">
 
@@ -494,7 +664,7 @@
           Maintenance & Support
         </h3>
 
-        <p class="text-gray-600 leading-8">
+        <p class="text-gray-800 leading-8">
           Ongoing support, upgrades and
           security monitoring solutions.
         </p>
@@ -513,7 +683,7 @@
           AI & Automation
         </h3>
 
-        <p class="text-gray-600 leading-8">
+        <p class="text-gray-800 leading-8">
           Smart automation systems, AI integrations,
           chatbots and intelligent workflows.
         </p>
@@ -540,7 +710,7 @@
           30+
         </h3>
 
-        <p class="text-gray-600 mt-3">
+        <p class="text-gray-800 mt-3">
           Projects
         </p>
 
@@ -552,7 +722,7 @@
           45+
         </h3>
 
-        <p class="text-gray-600 mt-3">
+        <p class="text-gray-800 mt-3">
           Clients
         </p>
 
@@ -564,7 +734,7 @@
           3+
         </h3>
 
-        <p class="text-gray-600 mt-3">
+        <p class="text-gray-800 mt-3">
           Years Experience
         </p>
 
@@ -576,7 +746,7 @@
           95%
         </h3>
 
-        <p class="text-gray-600 mt-3">
+        <p class="text-gray-800 mt-3">
           Satisfaction
         </p>
 
@@ -617,7 +787,7 @@
           Fast Development
         </h3>
 
-        <p class="text-gray-600 leading-8">
+        <p class="text-gray-800 leading-8">
           High performance websites and scalable software solutions.
         </p>
 
@@ -633,7 +803,7 @@
           Secure Systems
         </h3>
 
-        <p class="text-gray-600 leading-8">
+        <p class="text-gray-800 leading-8">
           Enterprise-grade security and reliable infrastructure.
         </p>
 
@@ -649,7 +819,7 @@
           Modern Technology
         </h3>
 
-        <p class="text-gray-600 leading-8">
+        <p class="text-gray-800 leading-8">
           Latest frameworks, AI systems and cloud technologies.
         </p>
 
@@ -662,7 +832,7 @@
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="py-28 px-6 bg-gray-50">
+<section id="projects" class="py-28 px-6">
 
   <div class="max-w-7xl mx-auto">
 
@@ -681,13 +851,13 @@
 
       <!-- PROJECT 1 : MAZI BHARATI -->
 
-      <div class="project-card backdrop-blur-xl bg-white border border-gray-200 rounded-[30px] overflow-hidden shadow-xl">
+      <div class="project-card backdrop-blur-xl bg-white/50 backdrop-blur-xl backdrop-blur-xl border border-gray-200 rounded-[30px] overflow-hidden shadow-xl">
         <div class="h-64 bg-gradient-to-b from-orange-500 via-white to-green-600 flex items-center justify-center">
           <div class="w-20 h-20 rounded-full border-4 border-blue-700"></div>
         </div>
         <div class="p-8">
           <h3 class="text-2xl font-bold">Mazi Bharati</h3>
-          <p class="mt-3 text-gray-600">Government and recruitment management platform for Police, Army and public sector services.</p>
+          <p class="mt-3 text-gray-800">Government and recruitment management platform for Police, Army and public sector services.</p>
           <div class="mt-5 flex flex-wrap gap-3">
             <span class="px-4 py-2 bg-orange-100 text-orange-700 rounded-full text-sm">HTML</span>
             <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm">CSS</span>
@@ -698,11 +868,11 @@
 
       <!-- PROJECT 2 : AGRIMITRA -->
 
-      <div class="project-card backdrop-blur-xl bg-white border border-gray-200 rounded-[30px] overflow-hidden shadow-xl">
+      <div class="project-card backdrop-blur-xl bg-white/50 backdrop-blur-xl backdrop-blur-xl border border-gray-200 rounded-[30px] overflow-hidden shadow-xl">
         <div class="h-64 bg-gradient-to-br from-lime-400 via-green-500 to-emerald-700"></div>
         <div class="p-8">
           <h3 class="text-2xl font-bold">AgriMitra</h3>
-          <p class="mt-3 text-gray-600">Agriculture related services and information platform.</p>
+          <p class="mt-3 text-gray-800">Agriculture related services and information platform.</p>
           <div class="mt-5 flex flex-wrap gap-3">
             <span class="px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm">Flutter</span>
             <span class="px-4 py-2 bg-emerald-100 text-emerald-700 rounded-full text-sm">Firebase</span>
@@ -712,13 +882,13 @@
 
      <!-- PROJECT 3 : PARKING -->
 
-      <div class="project-card backdrop-blur-xl bg-white border border-gray-200 rounded-[30px] overflow-hidden shadow-xl">
+      <div class="project-card backdrop-blur-xl bg-white/50 backdrop-blur-xl backdrop-blur-xl border border-gray-200 rounded-[30px] overflow-hidden shadow-xl">
         <div class="h-64 bg-gradient-to-br from-slate-700 via-gray-800 to-black flex items-center justify-center text-white text-5xl font-bold">
           P
         </div>
         <div class="p-8">
           <h3 class="text-2xl font-bold">Online Parking System</h3>
-          <p class="mt-3 text-gray-600">Smart vehicle parking and slot management system.</p>
+          <p class="mt-3 text-gray-800">Smart vehicle parking and slot management system.</p>
           <div class="mt-5 flex flex-wrap gap-3">
             <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm">Python</span>
             <span class="px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm">SQL</span>
@@ -729,13 +899,13 @@
 
        <!-- PROJECT 4 : STUDENT MANAGEMENT -->
 
-      <div class="project-card backdrop-blur-xl bg-white border border-gray-200 rounded-[30px] overflow-hidden shadow-xl">
+      <div class="project-card backdrop-blur-xl bg-white/50 backdrop-blur-xl backdrop-blur-xl border border-gray-200 rounded-[30px] overflow-hidden shadow-xl">
         <div class="h-64 bg-gradient-to-br from-pink-400 via-purple-500 to-indigo-600 flex items-center justify-center text-white text-7xl">
           🎓
         </div>
         <div class="p-8">
           <h3 class="text-2xl font-bold">Student Management System</h3>
-          <p class="mt-3 text-gray-600">Smart educational management system.</p>
+          <p class="mt-3 text-gray-800">Smart educational management system.</p>
           <div class="mt-5 flex flex-wrap gap-3">
             <span class="px-4 py-2 bg-pink-100 text-pink-700 rounded-full text-sm">Laravel</span>
             <span class="px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm">MySQL</span>
@@ -746,13 +916,13 @@
 
        <!-- PROJECT 5 : LIBRARY -->
 
-      <div class="project-card backdrop-blur-xl bg-white border border-gray-200 rounded-[30px] overflow-hidden shadow-xl">
+      <div class="project-card backdrop-blur-xl bg-white/50 backdrop-blur-xl backdrop-blur-xl border border-gray-200 rounded-[30px] overflow-hidden shadow-xl">
         <div class="h-64 bg-gradient-to-br from-amber-400 via-yellow-500 to-orange-600 flex items-center justify-center text-7xl">
           📚
         </div>
         <div class="p-8">
           <h3 class="text-2xl font-bold">Library System</h3>
-          <p class="mt-3 text-gray-600">Modern digital library management platform.</p>
+          <p class="mt-3 text-gray-800">Modern digital library management platform.</p>
           <div class="mt-5 flex flex-wrap gap-3">
             <span class="px-4 py-2 bg-yellow-100 text-yellow-700 rounded-full text-sm">Java</span>
             <span class="px-4 py-2 bg-amber-100 text-amber-700 rounded-full text-sm">Spring Boot</span>
@@ -762,13 +932,13 @@
       </div>
 
       <!-- PROJECT 6 (OUR WEBSITE) -->
-      <div class="project-card backdrop-blur-xl bg-white border border-gray-200 rounded-[30px] overflow-hidden shadow-xl">
+      <div class="project-card backdrop-blur-xl bg-white/50 backdrop-blur-xl backdrop-blur-xl border border-gray-200 rounded-[30px] overflow-hidden shadow-xl">
         <div class="h-64 bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-600 flex items-center justify-center text-white text-3xl font-bold">
           SDInfo_Tech
         </div>
         <div class="p-8">
           <h3 class="text-2xl font-bold">My Portfolio Website</h3>
-          <p class="mt-3 text-gray-600">
+          <p class="mt-3 text-gray-800">
             Modern responsive company website built using HTML, Tailwind CSS, EmailJS and GSAP animations.
           </p>
           <div class="mt-5 flex flex-wrap gap-3">
@@ -795,7 +965,7 @@
 
     <h2 class="text-5xl font-black text-gray-900 mb-6">Our Tech Stack</h2>
 
-    <p class="text-gray-600 max-w-2xl mx-auto mb-16 leading-8">We use modern technologies to build scalable, fast and secure applications.</p>
+    <p class="text-gray-800 max-w-2xl mx-auto mb-16 leading-8">We use modern technologies to build scalable, fast and secure applications.</p>
 
     <!-- ROW 1 (RIGHT → LEFT) -->
     <div class="overflow-hidden whitespace-nowrap mb-10">
@@ -942,7 +1112,7 @@
 
         </h2>
 
-        <p class="mt-8 text-gray-600 text-lg leading-8 max-w-xl">
+        <p class="mt-8 text-gray-800 text-lg leading-8 max-w-xl">
 
           Share your project requirements and our team will
           help you transform your idea into a modern digital product.
@@ -988,7 +1158,7 @@
       </div>
 
       <!-- RIGHT FORM -->
-      <div class="backdrop-blur-2xl bg-white/40 border border-white/40 rounded-[40px] p-10 shadow-[0_20px_80px_rgba(0,0,0,0.08)]">
+      <div class="backdrop-blur-2xl bg-white/50 backdrop-blur-xl backdrop-blur-xl/40 border border-white/40 rounded-[40px] p-10 shadow-[0_20px_80px_rgba(0,0,0,0.08)]">
 
        <form id="projectForm" class="space-y-6">
 
@@ -1003,7 +1173,7 @@
       name="name"
       required
       placeholder="Enter your name"
-      class="w-full mt-3 p-4 rounded-2xl bg-white/60 border border-white/50 outline-none focus:ring-2 focus:ring-cyan-400"
+      class="w-full mt-3 p-4 rounded-2xl bg-white/50 backdrop-blur-xl backdrop-blur-xl/60 border border-white/50 outline-none focus:ring-2 focus:ring-cyan-400"
     />
   </div>
 
@@ -1018,7 +1188,7 @@
       name="email"
       required
       placeholder="Enter your email"
-      class="w-full mt-3 p-4 rounded-2xl bg-white/60 border border-white/50 outline-none focus:ring-2 focus:ring-cyan-400"
+      class="w-full mt-3 p-4 rounded-2xl bg-white/50 backdrop-blur-xl backdrop-blur-xl/60 border border-white/50 outline-none focus:ring-2 focus:ring-cyan-400"
     />
   </div>
 
@@ -1031,7 +1201,7 @@
     <select
       name="project_type"
       required
-      class="w-full mt-3 p-4 rounded-2xl bg-white/60 border border-white/50 outline-none focus:ring-2 focus:ring-cyan-400"
+      class="w-full mt-3 p-4 rounded-2xl bg-white/50 backdrop-blur-xl backdrop-blur-xl/60 border border-white/50 outline-none focus:ring-2 focus:ring-cyan-400"
     >
       <option value="">Select Project Type</option>
       <option>Website Development</option>
@@ -1052,7 +1222,7 @@
     <select
       name="budget"
       required
-      class="w-full mt-3 p-4 rounded-2xl bg-white/60 border border-white/50 outline-none focus:ring-2 focus:ring-cyan-400"
+      class="w-full mt-3 p-4 rounded-2xl bg-white/50 backdrop-blur-xl backdrop-blur-xl/60 border border-white/50 outline-none focus:ring-2 focus:ring-cyan-400"
     >
       <option value="">Select Budget</option>
       <option>₹0k - ₹10k</option>
@@ -1074,7 +1244,7 @@
       rows="5"
       required
       placeholder="Tell us about your project..."
-      class="w-full mt-3 p-4 rounded-2xl bg-white/60 border border-white/50 outline-none resize-none focus:ring-2 focus:ring-cyan-400"
+      class="w-full mt-3 p-4 rounded-2xl bg-white/50 backdrop-blur-xl backdrop-blur-xl/60 border border-white/50 outline-none resize-none focus:ring-2 focus:ring-cyan-400"
     ></textarea>
   </div>
 
@@ -1116,7 +1286,7 @@
         <span class="hero-gradient">Great Together</span>
       </h2>
 
-      <p class="mt-6 text-gray-600 text-lg leading-8">
+      <p class="mt-6 text-gray-800 text-lg leading-8">
         If you experience any issue with our website, projects, or services, feel free to reach out through this form. We are here to assist you and ensure a smooth experience for all users.
       </p>
 
@@ -1157,7 +1327,7 @@
       Customer Support & Complaints
     </h3>
 
-    <p class="text-gray-600 mt-2">
+    <p class="text-gray-800 mt-2">
       Submit your issue and our team will contact you shortly.
     </p>
 
@@ -1167,7 +1337,7 @@
 
   <!-- TITLE -->
   <div>
-    <label class="text-sm text-gray-600 font-medium">
+    <label class="text-sm text-gray-800 font-medium">
       Complaint Title
     </label>
 
@@ -1176,13 +1346,13 @@
       name="title"
       required
       placeholder="Enter complaint title"
-      class="w-full mt-2 p-4 rounded-2xl bg-white/70 border border-white outline-none focus:ring-2 focus:ring-cyan-400"
+      class="w-full mt-2 p-4 rounded-2xl bg-white/50 backdrop-blur-xl backdrop-blur-xl/70 border border-white outline-none focus:ring-2 focus:ring-cyan-400"
     />
   </div>
 
   <!-- NAME -->
   <div>
-    <label class="text-sm text-gray-600 font-medium">
+    <label class="text-sm text-gray-800 font-medium">
       Full Name
     </label>
 
@@ -1191,13 +1361,13 @@
       name="name"
       required
       placeholder="Enter your name"
-      class="w-full mt-2 p-4 rounded-2xl bg-white/70 border border-white outline-none focus:ring-2 focus:ring-cyan-400"
+      class="w-full mt-2 p-4 rounded-2xl bg-white/50 backdrop-blur-xl backdrop-blur-xl/70 border border-white outline-none focus:ring-2 focus:ring-cyan-400"
     />
   </div>
 
   <!-- EMAIL -->
   <div>
-    <label class="text-sm text-gray-600 font-medium">
+    <label class="text-sm text-gray-800 font-medium">
       Email Address
     </label>
 
@@ -1206,13 +1376,13 @@
       name="email"
       required
       placeholder="Enter your email"
-      class="w-full mt-2 p-4 rounded-2xl bg-white/70 border border-white outline-none focus:ring-2 focus:ring-cyan-400"
+      class="w-full mt-2 p-4 rounded-2xl bg-white/50 backdrop-blur-xl backdrop-blur-xl/70 border border-white outline-none focus:ring-2 focus:ring-cyan-400"
     />
   </div>
 
   <!-- PHONE -->
   <div>
-    <label class="text-sm text-gray-600 font-medium">
+    <label class="text-sm text-gray-800 font-medium">
       Phone Number
     </label>
 
@@ -1221,20 +1391,20 @@
       name="phone"
       required
       placeholder="Enter phone number"
-      class="w-full mt-2 p-4 rounded-2xl bg-white/70 border border-white outline-none focus:ring-2 focus:ring-cyan-400"
+      class="w-full mt-2 p-4 rounded-2xl bg-white/50 backdrop-blur-xl backdrop-blur-xl/70 border border-white outline-none focus:ring-2 focus:ring-cyan-400"
     />
   </div>
 
   <!-- PRIORITY -->
   <div>
-    <label class="text-sm text-gray-600 font-medium">
+    <label class="text-sm text-gray-800 font-medium">
       Complaint Priority
     </label>
 
     <select
       name="priority"
       required
-      class="w-full mt-2 p-4 rounded-2xl bg-white/70 border border-white outline-none focus:ring-2 focus:ring-cyan-400"
+      class="w-full mt-2 p-4 rounded-2xl bg-white/50 backdrop-blur-xl backdrop-blur-xl/70 border border-white outline-none focus:ring-2 focus:ring-cyan-400"
     >
       <option value="">Select Priority</option>
       <option>Low</option>
@@ -1246,7 +1416,7 @@
 
   <!-- MESSAGE -->
   <div>
-    <label class="text-sm text-gray-600 font-medium">
+    <label class="text-sm text-gray-800 font-medium">
       Complaint Details
     </label>
 
@@ -1255,7 +1425,7 @@
       rows="5"
       required
       placeholder="Describe your complaint..."
-      class="w-full mt-2 p-4 rounded-2xl bg-white/70 border border-white outline-none resize-none focus:ring-2 focus:ring-cyan-400"
+      class="w-full mt-2 p-4 rounded-2xl bg-white/50 backdrop-blur-xl backdrop-blur-xl/70 border border-white outline-none resize-none focus:ring-2 focus:ring-cyan-400"
     ></textarea>
   </div>
 
@@ -1418,6 +1588,37 @@ gsap.utils.toArray(".tech-card").forEach((card, i) => {
 
   });
 
+</script>
+<script>
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".nav-link");
+
+window.addEventListener("scroll", () => {
+
+  let current = "";
+
+  sections.forEach(section => {
+
+    const sectionTop = section.offsetTop - 120;
+    const sectionHeight = section.clientHeight;
+
+    if(scrollY >= sectionTop){
+      current = section.getAttribute("id");
+    }
+
+  });
+
+  navLinks.forEach(link => {
+
+    link.classList.remove("active");
+
+    if(link.getAttribute("href").includes(current)){
+      link.classList.add("active");
+    }
+
+  });
+
+});
 </script>
 </body>
 </html>
