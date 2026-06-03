@@ -1679,15 +1679,16 @@ document.getElementById("projectForm")
   btn.innerHTML = "⏳ Submitting...";
 
   const data = {
-    name: this.name.value,
-    email: this.email.value,
-    phone: "",
-    service: this.project_type.value,
-    message:
-      "Budget: " + this.budget.value +
-      "\n\nProject Details:\n" +
-      this.message.value
-  };
+  formType: "project",
+  name: this.name.value,
+  email: this.email.value,
+  phone: "",
+  service: this.project_type.value,
+  message:
+    "Budget: " + this.budget.value +
+    "\n\nProject Details:\n" +
+    this.message.value
+};
 
   try {
 
@@ -1737,16 +1738,17 @@ document.getElementById("complaintForm")
   btn.innerHTML = "⏳ Submitting...";
 
   const data = {
-    name: this.name.value,
-    email: this.email.value,
-    phone: this.phone.value,
-    service:
-      "Complaint - " + this.priority.value,
-    message:
-      this.title.value +
-      "\n\n" +
-      this.message.value
-  };
+  formType: "complaint",
+  name: this.name.value,
+  email: this.email.value,
+  phone: this.phone.value,
+  service:
+    "Complaint - " + this.priority.value,
+  message:
+    this.title.value +
+    "\n\n" +
+    this.message.value
+};
 
   try {
 
