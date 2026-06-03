@@ -1662,5 +1662,122 @@ document.querySelectorAll(".mobile-link").forEach(link => {
   });
 });
 </script>
+<script>
+const API_URL =
+"https://script.google.com/macros/s/AKfycbwFLBcCH6h_w5sqPPlsUehLhkwzhSXMFwmYuwYyRNvO1BPDepv9aAsEop6P53bze9hPNA/exec";
+
+/* PROJECT FORM */
+document.getElementById("projectForm")
+.addEventListener("submit", async function(e) {
+
+  e.preventDefault();
+
+  const btn = document.getElementById("projectBtn");
+  const status = document.getElementById("projectStatus");
+
+  btn.disabled = true;
+  btn.innerHTML = "⏳ Submitting...";
+
+  const data = {
+    name: this.name.value,
+    email: this.email.value,
+    phone: "",
+    service: this.project_type.value,
+    message:
+      "Budget: " + this.budget.value +
+      "\n\nProject Details:\n" +
+      this.message.value
+  };
+
+  try {
+
+    const response = await fetch(API_URL, {
+      method: "POST",
+      body: JSON.stringify(data)
+    });
+
+    const result = await response.json();
+
+    if(result.result === "success") {
+
+      status.innerHTML =
+        "✅ Project submitted successfully!";
+      status.className =
+        "text-green-600 text-center font-semibold";
+
+      this.reset();
+    }
+
+  } catch(err) {
+
+    status.innerHTML =
+      "❌ Submission failed. Try again.";
+    status.className =
+      "text-red-600 text-center font-semibold";
+  }
+
+  btn.disabled = false;
+  btn.innerHTML = "🚀 Submit Project Idea";
+});
+
+
+/* COMPLAINT FORM */
+document.getElementById("complaintForm")
+.addEventListener("submit", async function(e) {
+
+  e.preventDefault();
+
+  const btn =
+    document.getElementById("complaintBtn");
+
+  const status =
+    document.getElementById("complaintStatus");
+
+  btn.disabled = true;
+  btn.innerHTML = "⏳ Submitting...";
+
+  const data = {
+    name: this.name.value,
+    email: this.email.value,
+    phone: this.phone.value,
+    service:
+      "Complaint - " + this.priority.value,
+    message:
+      this.title.value +
+      "\n\n" +
+      this.message.value
+  };
+
+  try {
+
+    const response = await fetch(API_URL, {
+      method: "POST",
+      body: JSON.stringify(data)
+    });
+
+    const result = await response.json();
+
+    if(result.result === "success") {
+
+      status.innerHTML =
+        "✅ Complaint submitted successfully!";
+      status.className =
+        "text-green-600 text-center font-semibold";
+
+      this.reset();
+    }
+
+  } catch(err) {
+
+    status.innerHTML =
+      "❌ Submission failed. Try again.";
+    status.className =
+      "text-red-600 text-center font-semibold";
+  }
+
+  btn.disabled = false;
+  btn.innerHTML = "🚨 Submit Complaint";
+});
+</script>
 </body>
 </html>
