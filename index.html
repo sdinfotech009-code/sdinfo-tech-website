@@ -7,8 +7,7 @@
   <title>SDInfo_Tech</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <style>
+    <style>
 /* =========================
    HERO BACKGROUND EFFECT
 ========================= */
@@ -33,8 +32,7 @@
   background-size:cover;
   background-position:center;
 
-  animation:heroZoom 18s ease-in-out infinite alternate;
-
+  
   z-index:-3;
 }
 
@@ -55,8 +53,7 @@
       transparent 65%
     );
 
-  animation:rotateGlow 35s linear infinite;
-
+  
   z-index:-2;
 }
 
@@ -116,8 +113,8 @@
 
 
     html{
-      scroll-behavior:smooth;
-    }
+  scroll-behavior:auto;
+}
 
 body{
   font-family: ui-sans-serif, system-ui;
@@ -204,11 +201,10 @@ body::after{
     }
 
     .glass{
-      background:rgba(255,255,255,0.55);
-      backdrop-filter:blur(18px);
-      border:1px solid rgba(255,255,255,0.5);
-      box-shadow:0 10px 40px rgba(15,23,42,0.06);
-    }
+  background:rgba(255,255,255,0.85);
+  border:1px solid rgba(255,255,255,0.5);
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
 
     .service-card{
       transition:0.4s ease;
@@ -263,7 +259,7 @@ body::after{
       gap:8px;
       padding:14px 20px;
       background:rgba(255,255,255,0.7);
-      backdrop-filter:blur(10px);
+      backdrop-filter:blur(4px);
       border-radius:18px;
       border:1px solid rgba(255,255,255,0.8);
       box-shadow:0 6px 20px rgba(0,0,0,0.05);
@@ -321,6 +317,16 @@ body::after{
   color:#0891b2;
 }
 
+@media(max-width:768px){
+
+  .animate-left,
+  .animate-right{
+    animation:none;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+}
   </style>
 </head>
 
@@ -328,16 +334,13 @@ body::after{
 
 <div class="particles"></div>
 
-<div class="glow top-[-150px] left-[-100px] bg-purple-300"></div>
-<div class="glow bottom-[-150px] right-[-100px] bg-cyan-300"></div>
-
 <header class="fixed top-0 w-full z-50">
   <div class="max-w-7xl mx-auto px-6 py-4">
     <div class="glass rounded-2xl px-6 py-4 flex justify-between items-center">
 
       <div class="flex items-center gap-4">
         <div class="w-14 h-14 rounded-2xl overflow-hidden shadow-lg">
-          <img src="logo.png" class="w-full h-full object-cover"/>
+          <img src="logo.webp" class="w-full h-full object-cover"/>
         </div>
 
         <div>
@@ -437,21 +440,17 @@ body::after{
 
     <!-- RIGHT SIDE -->
 
-    <div class="backdrop-blur-2xl bg-white/50 backdrop-blur-xl backdrop-blur-xl border border-white/20 rounded-[40px] p-6 sm:p-10 shadow-[0_20px_80px_rgba(0,0,0,0.35)]">
+   <div class="bg-white/70 border border-white/20 rounded-[40px] p-6 sm:p-10 shadow-xl">
 
       <div class="grid grid-cols-2 gap-4 sm:gap-5">
 
-        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b"
-             class="h-40 sm:h-44 w-full object-cover rounded-3xl shadow-lg hover:scale-105 transition-all duration-500"/>
+	<img src="hero1.webp" loading="lazy" alt="Technology">
 
-        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475"
-             class="h-52 sm:h-60 w-full object-cover rounded-3xl shadow-lg hover:scale-105 transition-all duration-500"/>
+	<img src="hero2.webp" loading="lazy" alt="Technology">
 
-        <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb"
-             class="h-52 sm:h-60 w-full object-cover rounded-3xl shadow-lg hover:scale-105 transition-all duration-500"/>
+        <img src="hero3.webp" loading="lazy" alt="Technology">
 
-        <img src="https://images.unsplash.com/photo-1526498460520-4c246339dccb"
-             class="h-40 sm:h-44 w-full object-cover rounded-3xl shadow-lg hover:scale-105 transition-all duration-500"/>
+	<img src="hero4.webp" loading="lazy" alt="Technology">
 
       </div>
 
@@ -469,21 +468,15 @@ body::after{
     <!-- LEFT SIDE IMAGES (SLIGHTLY BIGGER) -->
     <div class="flex justify-center order-1 md:order-1 md:scale-[1.05]">
 
-      <div class="backdrop-blur-xl bg-white/50 backdrop-blur-xl backdrop-blur-xl/20 border border-white/20 rounded-[30px] sm:rounded-[40px] p-6 sm:p-10 shadow-2xl w-full max-w-[420px]">
+      <div class="bg-white/80 bg-white/50 bg-white/80 bg-white/80/20 border border-white/20 rounded-[30px] sm:rounded-[40px] p-6 sm:p-10 shadow-2xl w-full max-w-[420px]">
 
         <div class="grid grid-cols-2 gap-4 sm:gap-5">
 
-          <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b"
-               class="h-36 sm:h-44 w-full object-cover rounded-3xl shadow-lg" />
+         <img src="hero1.webp" loading="lazy" alt="Technology">
+	<img src="hero3.webp" loading="lazy" alt="Technology">
+	<img src="hero5.webp" loading="lazy" alt="Technology">
+	<img src="hero4.webp" loading="lazy" alt="Technology">
 
-          <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb"
-               class="h-44 sm:h-60 w-full object-cover rounded-3xl shadow-lg" />
-
-          <img src="https://images.unsplash.com/photo-1526378722484-bd91ca387e72"
-               class="h-44 sm:h-60 w-full object-cover rounded-3xl shadow-lg" />
-
-          <img src="https://images.unsplash.com/photo-1526498460520-4c246339dccb"
-               class="h-36 sm:h-44 w-full object-cover rounded-3xl shadow-lg" />
 
         </div>
 
@@ -587,7 +580,7 @@ body::after{
 
 
       <!-- UI/UX DESIGN -->
-      <div class="service-card backdrop-blur-xl bg-white/50 backdrop-blur-xl backdrop-blur-xl border border-gray-200 rounded-[30px] p-10 shadow-xl hover:-translate-y-2 transition-all duration-300">
+      <div class="service-card bg-white/80 bg-white/50 bg-white/80 bg-white/80 border border-gray-200 rounded-[30px] p-10 shadow-xl hover:-translate-y-2 transition-all duration-300">
 
         <div class="w-16 h-16 rounded-2xl bg-pink-100 flex items-center justify-center mb-6">
 
@@ -618,7 +611,7 @@ body::after{
       </div>
 
       <!-- E-COMMERCE -->
-      <div class="service-card backdrop-blur-xl bg-white/50 backdrop-blur-xl backdrop-blur-xl border border-gray-200 rounded-[30px] p-10 shadow-xl hover:-translate-y-2 transition-all duration-300">
+      <div class="service-card bg-white/80 bg-white/50 bg-white/80 bg-white/80 border border-gray-200 rounded-[30px] p-10 shadow-xl hover:-translate-y-2 transition-all duration-300">
 
         <div class="w-16 h-16 rounded-2xl bg-orange-100 flex items-center justify-center mb-6">
 
@@ -669,7 +662,7 @@ body::after{
 
 
       <!-- MAINTENANCE -->
-      <div class="service-card backdrop-blur-xl bg-white/50 backdrop-blur-xl backdrop-blur-xl border border-gray-200 rounded-[30px] p-10 shadow-xl hover:-translate-y-2 transition-all duration-300">
+      <div class="service-card bg-white/80 bg-white/50 bg-white/80 bg-white/80 border border-gray-200 rounded-[30px] p-10 shadow-xl hover:-translate-y-2 transition-all duration-300">
 
         <div class="w-16 h-16 rounded-2xl bg-green-100 flex items-center justify-center mb-6">
 
@@ -679,12 +672,10 @@ body::after{
                viewBox="0 0 24 24"
                stroke="currentColor">
 
-            <path stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l2.01 6.184a1 1 0 00.95.69h6.505c.969 0 1.371 1.24.588 1.81l-5.26 3.82a1 1 0 00-.364 1.118l2.01 6.184c.3.921-.755 1.688-1.54 1.118l-5.26-3.82a1 1 0 00-1.176 0l-5.26 3.82c-.784.57-1.838-.197-1.539-1.118l2.01-6.184a1 1 0 00-.364-1.118l-5.26-3.82c-.783-.57-.38-1.81.588-1.81h6.505a1 1 0 00.95-.69l2.01-6.184z"/>
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l2.01 6.184a1 1 0 00.95.69h6.505c.969 0 1.371 1.24.588 1.81l-5.26 3.82a1 1 0 00-.364 1.118l2.01 6.184c.3.921-.755 1.688-1.54 1.118l-5.26-3.82a1 1 0 00-1.176 0l-5.26 3.82c-.784.57-1.838-.197-1.539-1.118l2.01-6.184a1 1 0 00-.364-1.118l-5.26-3.82c-.783-.57-.38-1.81.588-1.81h6.505a1 1 0 00.95-.69l2.01-6.184z"/>
 
-          </svg>
+
+	</svg>
 
         </div>
 
@@ -879,7 +870,7 @@ body::after{
 
       <!-- PROJECT 1 : MAZI BHARATI -->
 
-      <div class="project-card backdrop-blur-xl bg-white/50 backdrop-blur-xl backdrop-blur-xl border border-gray-200 rounded-[30px] overflow-hidden shadow-xl">
+      <div class="project-card bg-white/80 bg-white/50 bg-white/80 bg-white/80 border border-gray-200 rounded-[30px] overflow-hidden shadow-xl">
         <div class="h-64 bg-gradient-to-b from-orange-500 via-white to-green-600 flex items-center justify-center">
           <div class="w-20 h-20 rounded-full border-4 border-blue-700"></div>
         </div>
@@ -896,7 +887,7 @@ body::after{
 
       <!-- PROJECT 2 : AGRIMITRA -->
 
-      <div class="project-card backdrop-blur-xl bg-white/50 backdrop-blur-xl backdrop-blur-xl border border-gray-200 rounded-[30px] overflow-hidden shadow-xl">
+      <div class="project-card bg-white/80 bg-white/50 bg-white/80 bg-white/80 border border-gray-200 rounded-[30px] overflow-hidden shadow-xl">
         <div class="h-64 bg-gradient-to-br from-lime-400 via-green-500 to-emerald-700"></div>
         <div class="p-8">
           <h3 class="text-2xl font-bold">AgriMitra</h3>
@@ -910,7 +901,7 @@ body::after{
 
      <!-- PROJECT 3 : PARKING -->
 
-      <div class="project-card backdrop-blur-xl bg-white/50 backdrop-blur-xl backdrop-blur-xl border border-gray-200 rounded-[30px] overflow-hidden shadow-xl">
+      <div class="project-card bg-white/80 bg-white/50 bg-white/80 bg-white/80 border border-gray-200 rounded-[30px] overflow-hidden shadow-xl">
         <div class="h-64 bg-gradient-to-br from-slate-700 via-gray-800 to-black flex items-center justify-center text-white text-5xl font-bold">
           P
         </div>
@@ -927,7 +918,7 @@ body::after{
 
        <!-- PROJECT 4 : STUDENT MANAGEMENT -->
 
-      <div class="project-card backdrop-blur-xl bg-white/50 backdrop-blur-xl backdrop-blur-xl border border-gray-200 rounded-[30px] overflow-hidden shadow-xl">
+      <div class="project-card bg-white/80 bg-white/50 bg-white/80 bg-white/80 border border-gray-200 rounded-[30px] overflow-hidden shadow-xl">
         <div class="h-64 bg-gradient-to-br from-pink-400 via-purple-500 to-indigo-600 flex items-center justify-center text-white text-7xl">
           🎓
         </div>
@@ -944,7 +935,7 @@ body::after{
 
        <!-- PROJECT 5 : LIBRARY -->
 
-      <div class="project-card backdrop-blur-xl bg-white/50 backdrop-blur-xl backdrop-blur-xl border border-gray-200 rounded-[30px] overflow-hidden shadow-xl">
+      <div class="project-card bg-white/80 bg-white/50 bg-white/80 bg-white/80 border border-gray-200 rounded-[30px] overflow-hidden shadow-xl">
         <div class="h-64 bg-gradient-to-br from-amber-400 via-yellow-500 to-orange-600 flex items-center justify-center text-7xl">
           📚
         </div>
@@ -960,7 +951,7 @@ body::after{
       </div>
 
       <!-- PROJECT 6 (OUR WEBSITE) -->
-      <div class="project-card backdrop-blur-xl bg-white/50 backdrop-blur-xl backdrop-blur-xl border border-gray-200 rounded-[30px] overflow-hidden shadow-xl">
+      <div class="project-card bg-white/80 bg-white/50 bg-white/80 bg-white/80 border border-gray-200 rounded-[30px] overflow-hidden shadow-xl">
         <div class="h-64 bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-600 flex items-center justify-center text-white text-3xl font-bold">
           SDInfo_Tech
         </div>
@@ -1000,44 +991,45 @@ body::after{
       <div class="flex gap-10 animate-left w-max">
 
         <div class="tech-card">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"/>
-          <p>React</p>
-        </div>
+  	<div class="emoji">⚛️</div>
+ 	 <p>React</p>
+	</div>
+
+	<div class="tech-card">
+  	<div class="emoji">▲</div>
+  	<p>Next.js</p>
+	</div>
+
+	<div class="tech-card">
+ 	 <div class="emoji">🟢</div>
+  	<p>Node.js</p>
+	</div>
+
 
         <div class="tech-card">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"/>
-          <p>Next.js</p>
-        </div>
-
-        <div class="tech-card">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"/>
-          <p>Node.js</p>
-        </div>
-
-        <div class="tech-card">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"/>
+          <img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"/>
           <p>MongoDB</p>
         </div>
 
         <div class="tech-card">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"/>
+          <img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"/>
           <p>Docker</p>
         </div>
 
         <div class="tech-card">
-          <img src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-ar21.svg"alt="Amazon AWS"/>
+          <img loading="lazy" src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-ar21.svg"alt="Amazon AWS"/>
           <p>AWS</p>
         </div>
       <div class="tech-card">
-         <img src="https://www.vectorlogo.zone/logos/jquery/jquery-ar21.svg"alt="jQuery"/>
+         <img loading="lazy" src="https://www.vectorlogo.zone/logos/jquery/jquery-ar21.svg"alt="jQuery"/>
          <p>JQuery</p>
       </div>
       <div class="tech-card">
-         <img src="https://www.vectorlogo.zone/logos/djangoproject/djangoproject-ar21.svg" alt="Django"/>
+         <img loading="lazy" src="https://www.vectorlogo.zone/logos/djangoproject/djangoproject-ar21.svg" alt="Django"/>
          <p>Django</p>
       </div>
       <div class="tech-card">
-        <img src="https://www.vectorlogo.zone/logos/python/python-ar21.svg" alt="Python"/>
+        <img loading="lazy" src="https://www.vectorlogo.zone/logos/python/python-ar21.svg" alt="Python"/>
          <p>Python</p>
       </div>
 
@@ -1055,17 +1047,13 @@ body::after{
           <p>AI / OpenAI</p>
         </div>
 
-        <div class="tech-card">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"/>
-          <p>Firebase</p>
-        </div>
+       <div class="tech-card">
+  <div class="emoji">🔥</div>
+  <p>Firebase</p>
+</div>
 
        <div class="tech-card">
-  <img 
-    src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg"
-    alt="Tailwind CSS"
-    class="tech-logo"
-  />
+  <img loading="lazy" src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="Tailwind CSS" class="tech-logo"/>
   <p>Tailwind</p>
 </div>
  <div class="tech-card">
@@ -1075,7 +1063,7 @@ body::after{
 
 
 <div class="tech-card">
-  <img
+  <img loading="lazy"
     src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg"
     alt="GraphQL"
     class="tech-logo"
@@ -1084,12 +1072,12 @@ body::after{
 </div>
 
 <div class="tech-card">
-  <img src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-ar21.svg"alt="HTML5"/>
+  <img loading="lazy" src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-ar21.svg"alt="HTML5"/>
   <p>HTML</p>
 </div>
 
 <div class="tech-card">
-<img src="https://www.vectorlogo.zone/logos/w3_css/w3_css-ar21.svg"alt="CSS3"/>
+<img loading="lazy" src="https://www.vectorlogo.zone/logos/w3_css/w3_css-ar21.svg"alt="CSS3"/>
   <p>CSS</p>
 </div>
 
@@ -1186,7 +1174,7 @@ body::after{
       </div>
 
       <!-- RIGHT FORM -->
-      <div class="backdrop-blur-2xl bg-white/50 backdrop-blur-xl backdrop-blur-xl/40 border border-white/40 rounded-[40px] p-10 shadow-[0_20px_80px_rgba(0,0,0,0.08)]">
+      <div class="bg-white/80 bg-white/50 bg-white/80 bg-white/80/40 border border-white/40 rounded-[40px] p-10 shadow-[0_20px_80px_rgba(0,0,0,0.08)]">
 
        <form id="projectForm" class="space-y-6">
 
@@ -1201,7 +1189,7 @@ body::after{
       name="name"
       required
       placeholder="Enter your name"
-      class="w-full mt-3 p-4 rounded-2xl bg-white/50 backdrop-blur-xl backdrop-blur-xl/60 border border-white/50 outline-none focus:ring-2 focus:ring-cyan-400"
+      class="w-full mt-3 p-4 rounded-2xl bg-white/50 bg-white/80 bg-white/80/60 border border-white/50 outline-none focus:ring-2 focus:ring-cyan-400"
     />
   </div>
 
@@ -1216,7 +1204,7 @@ body::after{
       name="email"
       required
       placeholder="Enter your email"
-      class="w-full mt-3 p-4 rounded-2xl bg-white/50 backdrop-blur-xl backdrop-blur-xl/60 border border-white/50 outline-none focus:ring-2 focus:ring-cyan-400"
+      class="w-full mt-3 p-4 rounded-2xl bg-white/50 bg-white/80 bg-white/80/60 border border-white/50 outline-none focus:ring-2 focus:ring-cyan-400"
     />
   </div>
 
@@ -1229,7 +1217,7 @@ body::after{
     <select
       name="project_type"
       required
-      class="w-full mt-3 p-4 rounded-2xl bg-white/50 backdrop-blur-xl backdrop-blur-xl/60 border border-white/50 outline-none focus:ring-2 focus:ring-cyan-400"
+      class="w-full mt-3 p-4 rounded-2xl bg-white/50 bg-white/80 bg-white/80/60 border border-white/50 outline-none focus:ring-2 focus:ring-cyan-400"
     >
       <option value="">Select Project Type</option>
       <option>Website Development</option>
@@ -1250,7 +1238,7 @@ body::after{
     <select
       name="budget"
       required
-      class="w-full mt-3 p-4 rounded-2xl bg-white/50 backdrop-blur-xl backdrop-blur-xl/60 border border-white/50 outline-none focus:ring-2 focus:ring-cyan-400"
+      class="w-full mt-3 p-4 rounded-2xl bg-white/50 bg-white/80 bg-white/80/60 border border-white/50 outline-none focus:ring-2 focus:ring-cyan-400"
     >
       <option value="">Select Budget</option>
       <option>₹0k - ₹10k</option>
@@ -1272,7 +1260,7 @@ body::after{
       rows="5"
       required
       placeholder="Tell us about your project..."
-      class="w-full mt-3 p-4 rounded-2xl bg-white/50 backdrop-blur-xl backdrop-blur-xl/60 border border-white/50 outline-none resize-none focus:ring-2 focus:ring-cyan-400"
+      class="w-full mt-3 p-4 rounded-2xl bg-white/50 bg-white/80 bg-white/80/60 border border-white/50 outline-none resize-none focus:ring-2 focus:ring-cyan-400"
     ></textarea>
   </div>
 
@@ -1374,7 +1362,7 @@ body::after{
       name="title"
       required
       placeholder="Enter complaint title"
-      class="w-full mt-2 p-4 rounded-2xl bg-white/50 backdrop-blur-xl backdrop-blur-xl/70 border border-white outline-none focus:ring-2 focus:ring-cyan-400"
+      class="w-full mt-2 p-4 rounded-2xl bg-white/50 bg-white/80 bg-white/80/70 border border-white outline-none focus:ring-2 focus:ring-cyan-400"
     />
   </div>
 
@@ -1389,7 +1377,7 @@ body::after{
       name="name"
       required
       placeholder="Enter your name"
-      class="w-full mt-2 p-4 rounded-2xl bg-white/50 backdrop-blur-xl backdrop-blur-xl/70 border border-white outline-none focus:ring-2 focus:ring-cyan-400"
+      class="w-full mt-2 p-4 rounded-2xl bg-white/50 bg-white/80 bg-white/80/70 border border-white outline-none focus:ring-2 focus:ring-cyan-400"
     />
   </div>
 
@@ -1404,7 +1392,7 @@ body::after{
       name="email"
       required
       placeholder="Enter your email"
-      class="w-full mt-2 p-4 rounded-2xl bg-white/50 backdrop-blur-xl backdrop-blur-xl/70 border border-white outline-none focus:ring-2 focus:ring-cyan-400"
+      class="w-full mt-2 p-4 rounded-2xl bg-white/50 bg-white/80 bg-white/80/70 border border-white outline-none focus:ring-2 focus:ring-cyan-400"
     />
   </div>
 
@@ -1419,7 +1407,7 @@ body::after{
       name="phone"
       required
       placeholder="Enter phone number"
-      class="w-full mt-2 p-4 rounded-2xl bg-white/50 backdrop-blur-xl backdrop-blur-xl/70 border border-white outline-none focus:ring-2 focus:ring-cyan-400"
+      class="w-full mt-2 p-4 rounded-2xl bg-white/50 bg-white/80 bg-white/80/70 border border-white outline-none focus:ring-2 focus:ring-cyan-400"
     />
   </div>
 
@@ -1432,7 +1420,7 @@ body::after{
     <select
       name="priority"
       required
-      class="w-full mt-2 p-4 rounded-2xl bg-white/50 backdrop-blur-xl backdrop-blur-xl/70 border border-white outline-none focus:ring-2 focus:ring-cyan-400"
+      class="w-full mt-2 p-4 rounded-2xl bg-white/50 bg-white/80 bg-white/80/70 border border-white outline-none focus:ring-2 focus:ring-cyan-400"
     >
       <option value="">Select Priority</option>
       <option>Low</option>
@@ -1453,7 +1441,7 @@ body::after{
       rows="5"
       required
       placeholder="Describe your complaint..."
-      class="w-full mt-2 p-4 rounded-2xl bg-white/50 backdrop-blur-xl backdrop-blur-xl/70 border border-white outline-none resize-none focus:ring-2 focus:ring-cyan-400"
+      class="w-full mt-2 p-4 rounded-2xl bg-white/50 bg-white/80 bg-white/80/70 border border-white outline-none resize-none focus:ring-2 focus:ring-cyan-400"
     ></textarea>
   </div>
 
@@ -1513,109 +1501,6 @@ gsap.utils.toArray(".tech-card").forEach((card, i) => {
     }
   });
 });
-</script>
-<script>
-
-  // EMAILJS INIT
-  emailjs.init("-AO2ZPfYGFGfjSJzQ");
-
-  // =========================
-  // PROJECT FORM
-  // =========================
-
-  const projectForm = document.getElementById("projectForm");
-  const projectBtn = document.getElementById("projectBtn");
-  const projectStatus = document.getElementById("projectStatus");
-
-  projectForm.addEventListener("submit", function(e){
-
-    e.preventDefault();
-
-    projectBtn.innerHTML = "Sending...";
-    projectBtn.disabled = true;
-
-    emailjs.sendForm(
-      "service_u3hm69r",
-      "template_z5rz30p",
-      projectForm
-    )
-
-    .then(() => {
-
-      projectStatus.innerHTML = "✅ Project Submitted Successfully!";
-      projectStatus.className = "text-green-600 text-center font-medium";
-
-      projectForm.reset();
-
-    })
-
-    .catch((error) => {
-
-      console.log(error);
-
-      projectStatus.innerHTML = "❌ Failed To Submit.";
-      projectStatus.className = "text-red-600 text-center font-medium";
-
-    })
-
-    .finally(() => {
-
-      projectBtn.innerHTML = "🚀 Submit Project Idea";
-      projectBtn.disabled = false;
-
-    });
-
-  });
-
-
-  // =========================
-  // COMPLAINT FORM
-  // =========================
-
-  const complaintForm = document.getElementById("complaintForm");
-  const complaintBtn = document.getElementById("complaintBtn");
-  const complaintStatus = document.getElementById("complaintStatus");
-
-  complaintForm.addEventListener("submit", function(e){
-
-    e.preventDefault();
-
-    complaintBtn.innerHTML = "Submitting...";
-    complaintBtn.disabled = true;
-
-    emailjs.sendForm(
-      "service_u3hm69r",
-      "template_xvq9t6i",
-      complaintForm
-    )
-
-    .then(() => {
-
-      complaintStatus.innerHTML = "✅ Complaint Submitted Successfully!";
-      complaintStatus.className = "text-green-600 text-center font-medium";
-
-      complaintForm.reset();
-
-    })
-
-    .catch((error) => {
-
-      console.log(error);
-
-      complaintStatus.innerHTML = "❌ Failed To Submit Complaint.";
-      complaintStatus.className = "text-red-600 text-center font-medium";
-
-    })
-
-    .finally(() => {
-
-      complaintBtn.innerHTML = "🚨 Submit Complaint";
-      complaintBtn.disabled = false;
-
-    });
-
-  });
-
 </script>
 <script>
 const sections = document.querySelectorAll("section");
